@@ -1,0 +1,10 @@
+{
+    "version": 2,
+    "name": "test-technique-strateg-in",
+    "build": [
+        { "src": "server.js", "use": "@vercel/node" }
+    ],
+    "routes": [
+        { "src": "/(.*)","dest": "/server.js" }
+    ]
+}
