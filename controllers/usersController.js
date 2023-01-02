@@ -41,7 +41,13 @@ exports.create = (req, res) => {
 exports.findAll = (req, res) => {
   User.find({})
     .then((data) => {
-      res.send(data);
+      const usersData = data.map((user) => ({
+        _id: user._id,
+        username: user.username,
+        email: user.email,
+        createdAt: user.createdAt,
+      }));
+      res.send(usersData);
     })
     .catch((err) => {
       res.status(500).send({
