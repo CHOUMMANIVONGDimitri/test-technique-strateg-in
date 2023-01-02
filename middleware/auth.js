@@ -34,7 +34,7 @@ const verifyPassword = (req, res) => {
         const token = jwt.sign(payload, config.secret, {
           expiresIn: "1h",
         });
-        res.send({ token, user: req.user.users });
+        res.send({ token });
       } else {
         res.sendStatus(401);
       }
